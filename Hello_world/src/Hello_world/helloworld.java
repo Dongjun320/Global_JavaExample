@@ -8,7 +8,7 @@ public class helloworld {
 		
 		i++;
 		
-		System.out.println(args[0]);
+		System.out.println(i);
 		
 		System.out.println("Hello world");
 		
