@@ -4,7 +4,7 @@ public class helloworld {
 
 	public static void main(String[] args) {
 		
-		int i = 20;
+		int i = 40;
 		
 		i++;
 		
