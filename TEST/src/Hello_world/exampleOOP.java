@@ -7,8 +7,8 @@ public class exampleOOP {
 	String name;
 	
 	//처리, 함수, 기능 method, funtion, action
-	void readUserId() {
-		
+	String getUserId() {
+		return this.name;
 	}
 			
 }
