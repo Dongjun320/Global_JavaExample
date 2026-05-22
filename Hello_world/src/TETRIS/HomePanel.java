@@ -5,22 +5,26 @@ import java.awt.*;
 
 public class HomePanel extends JPanel {
 
-    public HomePanel(Runnable on1P, Runnable on2P) {
-        setPreferredSize(new Dimension(520, 450));
+    public HomePanel(Runnable on1P, Runnable on2P, Runnable onOnline) {
+        setPreferredSize(new Dimension(520, 510));
         setBackground(new Color(20, 24, 40));
         setLayout(null);
 
-        JButton btn1P = makeButton("▶  1 PLAYER", new Color(35, 85, 155), new Color(55, 115, 200));
-        JButton btn2P = makeButton("▶▶ 2 PLAYER", new Color(110, 35, 135), new Color(150, 55, 175));
+        JButton btn1P     = makeButton("▶  1 PLAYER",       new Color(35, 85, 155),  new Color(55, 115, 200));
+        JButton btn2P     = makeButton("▶▶ 2 PLAYER",       new Color(110, 35, 135), new Color(150, 55, 175));
+        JButton btnOnline = makeButton("◉  ONLINE MULTI",   new Color(35, 130, 95),  new Color(55, 170, 125));
 
         btn1P.setBounds(160, 270, 200, 52);
         btn2P.setBounds(160, 338, 200, 52);
+        btnOnline.setBounds(160, 406, 200, 52);
 
         btn1P.addActionListener(e -> on1P.run());
         btn2P.addActionListener(e -> on2P.run());
+        btnOnline.addActionListener(e -> { if (onOnline != null) onOnline.run(); });
 
         add(btn1P);
         add(btn2P);
+        add(btnOnline);
     }
 
     private JButton makeButton(String text, Color base, Color hover) {
@@ -83,10 +87,10 @@ public class HomePanel extends JPanel {
         g.setFont(new Font("맑은 고딕", Font.PLAIN, 11));
         g.setColor(new Color(75, 85, 125));
         String s1 = "게임 중 ESC → 홈으로 돌아가기";
-        String s2 = "2P 조작: 방향키(P1)  /  넘패드 4·6·8·2·0·7(P2)";
+        String s2 = "2P: WASD(P1) · 넘패드(P2)    ONLINE: 같은 와이파이의 두 PC";
         FontMetrics fm = g.getFontMetrics();
-        g.drawString(s1, (520 - fm.stringWidth(s1)) / 2, 415);
-        g.drawString(s2, (520 - fm.stringWidth(s2)) / 2, 432);
+        g.drawString(s1, (520 - fm.stringWidth(s1)) / 2, 475);
+        g.drawString(s2, (520 - fm.stringWidth(s2)) / 2, 492);
     }
 
     /** 장식용 테트로미노 블록 */
